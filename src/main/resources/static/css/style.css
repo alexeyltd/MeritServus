@@ -1,0 +1,104 @@
+/* File for changing standard styles of bootstrap */
+
+/* btn-primary black color */
+.dark-button-primary {
+    background-color: #222222;
+    border-color: #000000;
+}
+
+.dark-button-primary:focus,
+.dark-button-primary.focus {
+    color: #ffffff;
+    background-color: #101010;
+    border-color: #000000;
+}
+
+.dark-button-primary:hover {
+    color: #ffffff;
+    background-color: #101010;
+    border-color: #000000;
+}
+
+.dark-button-primary:active,
+.dark-button-primary.active,
+.open > .dropdown-toggle.btn-primary {
+    color: #ffffff;
+    background-color: #101010;
+    border-color: #000000;
+}
+
+.dark-button-primary:active:hover,
+.dark-button-primary.active:hover,
+.open > .dropdown-toggle.dark-button-primary:hover,
+.dark-button-primary:active:focus,
+.dark-button-primary.active:focus,
+.open > .dropdown-toggle.dark-button-primary:focus,
+.dark-button-primary:active.focus,
+.dark-button-primary.active.focus,
+.open > .dropdown-toggle.dark-button-primary.focus {
+    color: #ffffff;
+    background-color: #000000;
+    border-color: #000000;
+}
+
+/* adds elders if the field is too long */
+.cut-text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 150px;
+}
+
+.beginingOfPost {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 400px;
+}
+
+.cut-text-two {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 400px;
+}
+
+.bottom-Margin {
+    margin-bottom: 10px;
+}
+
+.form-search-city {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.panel-without-margin {
+    margin-bottom: 0px;
+}
+
+#invisible {
+    display: none;
+}
+
+.invis {
+    display: none;
+}
+
+.hide-param {
+    display: none;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    padding: 5px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #dddddd;
+}
+
+.login-form {
+    margin-top: 100px;
+    background-color: #F7F9FA;
+    padding: 20px;
+    border-radius: 10px;
+}

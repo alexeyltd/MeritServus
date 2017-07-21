@@ -12,7 +12,7 @@ public class MeritServusApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MeritServusApplication.class, args);
-		logger.debug("--Application Started--");
+		logger.debug("MeritServusApplication Started");
 	}
 
 }

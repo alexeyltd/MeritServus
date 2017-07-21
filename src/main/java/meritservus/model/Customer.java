@@ -3,9 +3,26 @@ package meritservus.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class RootObject {
+import javax.persistence.*;
 
+@Entity
+@Table(name = "customer")
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Customer {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(final long id) {
+		this.id = id;
+	}
+
+	@Column(name = "customer")
 	@JsonProperty("customer")
 	private String customer;
 
@@ -17,6 +34,7 @@ public class RootObject {
 		this.customer = customer;
 	}
 
+	@Column(name = "ccyPair")
 	@JsonProperty("ccyPair")
 	private String ccyPair;
 
@@ -28,6 +46,7 @@ public class RootObject {
 		this.ccyPair = ccyPair;
 	}
 
+	@Column(name = "type")
 	@JsonProperty("type")
 	private String type;
 
@@ -39,6 +58,7 @@ public class RootObject {
 		this.type = type;
 	}
 
+	@Column(name = "direction")
 	@JsonProperty("direction")
 	private String direction;
 
@@ -50,6 +70,7 @@ public class RootObject {
 		this.direction = direction;
 	}
 
+	@Column(name = "tradeDate")
 	@JsonProperty("tradeDate")
 	private String tradeDate;
 
@@ -61,6 +82,7 @@ public class RootObject {
 		this.tradeDate = tradeDate;
 	}
 
+	@Column(name = "amount1")
 	@JsonProperty("amount1")
 	private double amount1;
 
@@ -72,6 +94,7 @@ public class RootObject {
 		this.amount1 = amount1;
 	}
 
+	@Column(name = "amount2")
 	@JsonProperty("amount2")
 	private double amount2;
 
@@ -83,6 +106,7 @@ public class RootObject {
 		this.amount2 = amount2;
 	}
 
+	@Column(name = "rate")
 	@JsonProperty("rate")
 	private double rate;
 
@@ -94,6 +118,7 @@ public class RootObject {
 		this.rate = rate;
 	}
 
+	@Column(name = "valueDate")
 	@JsonProperty("valueDate")
 	private String valueDate;
 
@@ -105,6 +130,7 @@ public class RootObject {
 		this.valueDate = valueDate;
 	}
 
+	@Column(name = "legalEntity")
 	@JsonProperty("legalEntity")
 	private String legalEntity;
 
@@ -116,6 +142,7 @@ public class RootObject {
 		this.legalEntity = legalEntity;
 	}
 
+	@Column(name = "trader")
 	@JsonProperty("trader")
 	private String trader;
 
@@ -124,6 +151,24 @@ public class RootObject {
 	}
 
 	public void setTrader(String trader) {
+		this.trader = trader;
+	}
+
+	public Customer() {
+	}
+
+	public Customer(final long id, final String customer, final String ccyPair, final String type, final String direction, final String tradeDate, final double amount1, final double amount2, final double rate, final String valueDate, final String legalEntity, final String trader) {
+		this.id = id;
+		this.customer = customer;
+		this.ccyPair = ccyPair;
+		this.type = type;
+		this.direction = direction;
+		this.tradeDate = tradeDate;
+		this.amount1 = amount1;
+		this.amount2 = amount2;
+		this.rate = rate;
+		this.valueDate = valueDate;
+		this.legalEntity = legalEntity;
 		this.trader = trader;
 	}
 }

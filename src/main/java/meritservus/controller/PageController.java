@@ -12,11 +12,7 @@ public class PageController {
 
 	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
 	public String getMainPage(Model model) {
-
-
-
 		return "main";
-
 	}
 
 }

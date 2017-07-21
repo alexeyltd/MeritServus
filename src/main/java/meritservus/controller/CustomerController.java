@@ -5,9 +5,9 @@ import meritservus.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.apache.log4j.Logger;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,14 +21,14 @@ public class CustomerController {
 	private CustomerService customerService;
 
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<Customer> addEmployee(@RequestBody Customer customer) {
+	public ResponseEntity<Customer> addEmployee(@RequestBody @Validated Customer customer) {
 		customerService.addCustomer(customer);
 		logger.debug("Added: " + customer);
 		return new ResponseEntity<Customer>(customer, HttpStatus.CREATED);
 	}
 
 	@RequestMapping(method = RequestMethod.PUT)
-	public ResponseEntity<Void> updateEmployee(@RequestBody Customer customer) {
+	public ResponseEntity<Void> updateEmployee(@RequestBody @Validated Customer customer) {
 
 		Customer currentCustomer = customerService.getCustomer(customer.getCustomer());
 		if (currentCustomer == null) {
@@ -41,7 +41,7 @@ public class CustomerController {
 		}
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{name}", method = RequestMethod.GET)
 	public ResponseEntity<Customer> getEmployee(@PathVariable("name") String name) {
 		Customer customer = customerService.getCustomer(name);
 
@@ -66,7 +66,7 @@ public class CustomerController {
 		return new ResponseEntity<List<Customer>>(customers, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/{name}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> deleteEmployee(@PathVariable("name") String name) {
 		Customer customer = customerService.getCustomer(name);
 		if (customer == null) {
